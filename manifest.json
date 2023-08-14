@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Ens expiry",
+  "version": "1.0",
+  "description": "Add the expiry date of an ens domain to calender.",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "images/icon-16.png"
+  },
+  "icons": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+  "content_scripts": [
+      {
+        "js": ["scripts/content.js"],
+        "matches": [
+          "https://app.ens.domains/*"
+        ]
+      }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["popup/addtocalender.js"],
+    "matches": [
+      "https://app.ens.domains/*"
+    ]
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  }
+}
+  
